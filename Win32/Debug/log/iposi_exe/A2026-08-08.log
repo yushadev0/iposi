@@ -1,0 +1,239 @@
+Iposi.exe: 000061C0: 12:33:45 []:>--------------------------------------------------------------<
+Iposi.exe: 000061C0: 12:33:45 [TUniServerModule]:Server First Init.
+Iposi.exe: 000061C0: 12:33:45 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 000061C0: 12:33:45 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 000061C0: 12:33:45 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 00003F64: 12:42:01 [HandleFileRequest[127.0.0.1]]:File not found: C:\yusag\PROJECTS\iposi\Win32\Debug\.well-known\appspecific\com.chrome.devtools.json
+Iposi.exe: 000061C0: 12:43:52 [TUniServerModule]:Shutting Down Server.
+Iposi.exe: 000061C0: 12:43:52 [TUniServerModule]:Stopping HTTP Server.
+Iposi.exe: 000061C0: 12:43:53 [TUniServerModule]:HTTP Server Stopped.
+Iposi.exe: 000061C0: 12:43:53 [TUniGUISessionManager]:Terminating Session manager.
+Iposi.exe: 000061C0: 12:43:53 [TUniGUISessionManager]:Stopping Cache Eraser...
+Iposi.exe: 000061C0: 12:43:53 [TUniGUISessionManager]:Cache Eraser Stopped.
+Iposi.exe: 000061C0: 12:43:53 [TUniGUISessionManager]:Destroying Worker Threads.
+Iposi.exe: 000061C0: 12:43:53 [TUniGUISessionManager]:Session manager terminated.
+Iposi.exe: 000061C0: 12:43:53 [TUniWebSocketStack]:Terminating...
+Iposi.exe: 000061C0: 12:43:53 [TUniGUIMessageQ]:Terminated.
+Iposi.exe: 000061C0: 12:43:53 [TUniWebSocketStack]:Terminated.
+Iposi.exe: 000061C0: 12:43:53 [TUniServerModule]:Server Shutdown Completed.
+Iposi.exe: 000061C0: 12:43:53 []:<-------------------------------------------------------------->
+Iposi.exe: 00003460: 12:44:00 []:>--------------------------------------------------------------<
+Iposi.exe: 00003460: 12:44:00 [TUniServerModule]:Server First Init.
+Iposi.exe: 00003460: 12:44:00 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 00003460: 12:44:00 [TUniGUISessionManager]:Cache erase job created, Folder count: [1]
+Iposi.exe: 00003460: 12:44:00 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 00003460: 12:44:00 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 00005318: 12:44:03 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: SBsFVC9uwS113A07FDF ) : Addr: $00E34B23
+Iposi.exe: 00002FAC: 12:44:05 [127.0.0.1]:EDatabaseError : GirisTable: Field 'username' not found : Addr: $00C616C6
+Iposi.exe: 00003460: 12:45:05 [TUniServerModule]:Shutting Down Server.
+Iposi.exe: 00003460: 12:45:05 [TUniServerModule]:Stopping HTTP Server.
+Iposi.exe: 00003460: 12:45:06 [TUniServerModule]:HTTP Server Stopped.
+Iposi.exe: 00003460: 12:45:06 [TUniGUISessionManager]:Terminating Session manager.
+Iposi.exe: 00003460: 12:45:06 [TUniGUISessionManager]:Stopping Cache Eraser...
+Iposi.exe: 00003460: 12:45:06 [TUniGUISessionManager]:Cache Eraser Stopped.
+Iposi.exe: 00003460: 12:45:06 [TUniGUISessionManager]:Destroying Worker Threads.
+Iposi.exe: 00003460: 12:45:06 [TUniGUISessionManager]:Session manager terminated.
+Iposi.exe: 00003460: 12:45:06 [TUniWebSocketStack]:Terminating...
+Iposi.exe: 00003460: 12:45:06 [TUniGUIMessageQ]:Terminated.
+Iposi.exe: 00003460: 12:45:06 [TUniWebSocketStack]:Terminated.
+Iposi.exe: 00003460: 12:45:06 [TUniServerModule]:Server Shutdown Completed.
+Iposi.exe: 00003460: 12:45:06 []:<-------------------------------------------------------------->
+Iposi.exe: 00003D90: 12:45:08 []:>--------------------------------------------------------------<
+Iposi.exe: 00003D90: 12:45:08 [TUniServerModule]:Server First Init.
+Iposi.exe: 00003D90: 12:45:08 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 00003D90: 12:45:08 [TUniGUISessionManager]:Cache erase job created, Folder count: [1]
+Iposi.exe: 00003D90: 12:45:08 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 00003D90: 12:45:08 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 00001F30: 12:45:10 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: OII2B6ZFro113A08084 ) : Addr: $01064B23
+Iposi.exe: 00001FE4: 12:45:10 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: OII2B6ZFro113A08084 ) : Addr: $01064B23
+Iposi.exe: 00001F30: 12:45:10 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: OII2B6ZFro113A08084 ) : Addr: $01064B23
+Iposi.exe: 00001FE4: 12:45:15 [HandleFileRequest[127.0.0.1]]:File not found: C:\yusag\PROJECTS\iposi\Win32\Debug\.well-known\appspecific\com.chrome.devtools.json
+Iposi.exe: 00003D90: 12:46:54 [TUniServerModule]:Shutting Down Server.
+Iposi.exe: 00003D90: 12:46:54 [TUniServerModule]:Stopping HTTP Server.
+Iposi.exe: 00003D90: 12:46:55 [TUniServerModule]:HTTP Server Stopped.
+Iposi.exe: 00003D90: 12:46:55 [TUniGUISessionManager]:Terminating Session manager.
+Iposi.exe: 00003D90: 12:46:55 [TUniGUISessionManager]:Stopping Cache Eraser...
+Iposi.exe: 00003D90: 12:46:55 [TUniGUISessionManager]:Cache Eraser Stopped.
+Iposi.exe: 00003D90: 12:46:55 [TUniGUISessionManager]:Destroying Worker Threads.
+Iposi.exe: 00003D90: 12:46:55 [TUniGUISessionManager]:Session manager terminated.
+Iposi.exe: 00003D90: 12:46:55 [TUniWebSocketStack]:Terminating...
+Iposi.exe: 00003D90: 12:46:55 [TUniGUIMessageQ]:Terminated.
+Iposi.exe: 00003D90: 12:46:55 [TUniWebSocketStack]:Terminated.
+Iposi.exe: 00003D90: 12:46:55 [TUniServerModule]:Server Shutdown Completed.
+Iposi.exe: 00003D90: 12:46:55 []:<-------------------------------------------------------------->
+Iposi.exe: 00006938: 12:46:59 []:>--------------------------------------------------------------<
+Iposi.exe: 00006938: 12:46:59 [TUniServerModule]:Server First Init.
+Iposi.exe: 00006938: 12:46:59 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 00006938: 12:46:59 [TUniGUISessionManager]:Cache erase job created, Folder count: [1]
+Iposi.exe: 00006938: 12:46:59 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 00006938: 12:46:59 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 00006850: 12:47:02 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: 47bSNYxpN3113A080D1 ) : Addr: $010E4B23
+Iposi.exe: 00004504: 12:47:03 [127.0.0.1]:EDatabaseError : GirisTable: Field 'username' not found : Addr: $00F116C6
+Iposi.exe: 00004504: 12:47:07 [HandleFileRequest[127.0.0.1]]:File not found: C:\yusag\PROJECTS\iposi\Win32\Debug\.well-known\appspecific\com.chrome.devtools.json
+Iposi.exe: 00006938: 12:48:13 [TUniServerModule]:Shutting Down Server.
+Iposi.exe: 00006938: 12:48:13 [TUniServerModule]:Stopping HTTP Server.
+Iposi.exe: 00006938: 12:48:14 [TUniServerModule]:HTTP Server Stopped.
+Iposi.exe: 00006938: 12:48:14 [TUniGUISessionManager]:Terminating Session manager.
+Iposi.exe: 00006938: 12:48:14 [TUniGUISessionManager]:Stopping Cache Eraser...
+Iposi.exe: 00006938: 12:48:14 [TUniGUISessionManager]:Cache Eraser Stopped.
+Iposi.exe: 00006938: 12:48:14 [TUniGUISessionManager]:Destroying Worker Threads.
+Iposi.exe: 00006938: 12:48:14 [TUniGUISessionManager]:Session manager terminated.
+Iposi.exe: 00006938: 12:48:14 [TUniWebSocketStack]:Terminating...
+Iposi.exe: 00006938: 12:48:14 [TUniGUIMessageQ]:Terminated.
+Iposi.exe: 00006938: 12:48:14 [TUniWebSocketStack]:Terminated.
+Iposi.exe: 00006938: 12:48:14 [TUniServerModule]:Server Shutdown Completed.
+Iposi.exe: 00006938: 12:48:14 []:<-------------------------------------------------------------->
+Iposi.exe: 00001378: 12:48:15 []:>--------------------------------------------------------------<
+Iposi.exe: 00001378: 12:48:15 [TUniServerModule]:Server First Init.
+Iposi.exe: 00001378: 12:48:15 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 00001378: 12:48:15 [TUniGUISessionManager]:Cache erase job created, Folder count: [1]
+Iposi.exe: 00001378: 12:48:15 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 00001378: 12:48:15 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 00004220: 12:48:17 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: dhfk5yHmHs113A08153 ) : Addr: $012D4B23
+Iposi.exe: 00001378: 12:52:15 [TUniServerModule]:Shutting Down Server.
+Iposi.exe: 00001378: 12:52:15 [TUniServerModule]:Stopping HTTP Server.
+Iposi.exe: 00001378: 12:52:16 [TUniServerModule]:HTTP Server Stopped.
+Iposi.exe: 00001378: 12:52:16 [TUniGUISessionManager]:Terminating Session manager.
+Iposi.exe: 00001378: 12:52:16 [TUniGUISessionManager]:Stopping Cache Eraser...
+Iposi.exe: 00001378: 12:52:16 [TUniGUISessionManager]:Cache Eraser Stopped.
+Iposi.exe: 00001378: 12:52:16 [TUniGUISessionManager]:Destroying Worker Threads.
+Iposi.exe: 00001378: 12:52:16 [TUniGUISessionManager]:Session manager terminated.
+Iposi.exe: 00001378: 12:52:16 [TUniWebSocketStack]:Terminating...
+Iposi.exe: 00001378: 12:52:16 [TUniGUIMessageQ]:Terminated.
+Iposi.exe: 00001378: 12:52:16 [TUniWebSocketStack]:Terminated.
+Iposi.exe: 00001378: 12:52:16 [TUniServerModule]:Server Shutdown Completed.
+Iposi.exe: 00001378: 12:52:16 []:<-------------------------------------------------------------->
+Iposi.exe: 00000084: 12:52:26 []:>--------------------------------------------------------------<
+Iposi.exe: 00000084: 12:52:26 [TUniServerModule]:Server First Init.
+Iposi.exe: 00000084: 12:52:26 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 00000084: 12:52:26 [TUniGUISessionManager]:Cache erase job created, Folder count: [1]
+Iposi.exe: 00000084: 12:52:26 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 00000084: 12:52:26 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 000014B4: 12:52:29 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: eU8ci5SHmB113A081A9 ) : Addr: $00C84B23
+Iposi.exe: 000055E8: 12:53:33 [127.0.0.1]:EDatabaseError : GirisTable: Field 'username' not found : Addr: $00AB16C6
+Iposi.exe: 00004118: 12:54:42 [HandleFileRequest[127.0.0.1]]:File not found: C:\yusag\PROJECTS\iposi\Win32\Debug\.well-known\appspecific\com.chrome.devtools.json
+Iposi.exe: 00003A10: 12:55:51 [HandleFileRequest[127.0.0.1]]:File not found: C:\yusag\PROJECTS\iposi\Win32\Debug\.well-known\appspecific\com.chrome.devtools.json
+Iposi.exe: 00006564: 12:55:57 [127.0.0.1]:EDatabaseError : GirisTable: Field 'username' not found : Addr: $00AB16C6
+Iposi.exe: 00000084: 12:59:00 [TUniServerModule]:Shutting Down Server.
+Iposi.exe: 00000084: 12:59:00 [TUniServerModule]:Stopping HTTP Server.
+Iposi.exe: 00000084: 12:59:01 [TUniServerModule]:HTTP Server Stopped.
+Iposi.exe: 00000084: 12:59:01 [TUniGUISessionManager]:Terminating Session manager.
+Iposi.exe: 00000084: 12:59:01 [TUniGUISessionManager]:Stopping Cache Eraser...
+Iposi.exe: 00000084: 12:59:01 [TUniGUISessionManager]:Cache Eraser Stopped.
+Iposi.exe: 00000084: 12:59:01 [TUniGUISessionManager]:Destroying Worker Threads.
+Iposi.exe: 00000084: 12:59:01 [TUniGUISessionManager]:Session manager terminated.
+Iposi.exe: 00000084: 12:59:01 [TUniWebSocketStack]:Terminating...
+Iposi.exe: 00000084: 12:59:01 [TUniGUIMessageQ]:Terminated.
+Iposi.exe: 00000084: 12:59:01 [TUniWebSocketStack]:Terminated.
+Iposi.exe: 00000084: 12:59:01 [TUniServerModule]:Server Shutdown Completed.
+Iposi.exe: 00000084: 12:59:01 []:<-------------------------------------------------------------->
+Iposi.exe: 00004458: 12:59:03 []:>--------------------------------------------------------------<
+Iposi.exe: 00004458: 12:59:03 [TUniServerModule]:Server First Init.
+Iposi.exe: 00004458: 12:59:03 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 00004458: 12:59:03 [TUniGUISessionManager]:Cache erase job created, Folder count: [1]
+Iposi.exe: 00004458: 12:59:03 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 00004458: 12:59:03 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 00000D40: 12:59:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: Wicm8BgWsW113A083B7 ) : Addr: $00A04B23
+Iposi.exe: 00004458: 12:59:19 [TUniServerModule]:Shutting Down Server.
+Iposi.exe: 00004458: 12:59:19 [TUniServerModule]:Stopping HTTP Server.
+Iposi.exe: 00004458: 12:59:20 [TUniServerModule]:HTTP Server Stopped.
+Iposi.exe: 00004458: 12:59:20 [TUniGUISessionManager]:Terminating Session manager.
+Iposi.exe: 00004458: 12:59:20 [TUniGUISessionManager]:Stopping Cache Eraser...
+Iposi.exe: 00004458: 12:59:20 [TUniGUISessionManager]:Cache Eraser Stopped.
+Iposi.exe: 00004458: 12:59:20 [TUniGUISessionManager]:Destroying Worker Threads.
+Iposi.exe: 00004458: 12:59:20 [TUniGUISessionManager]:Session manager terminated.
+Iposi.exe: 00004458: 12:59:20 [TUniWebSocketStack]:Terminating...
+Iposi.exe: 00004458: 12:59:20 [TUniGUIMessageQ]:Terminated.
+Iposi.exe: 00004458: 12:59:20 [TUniWebSocketStack]:Terminated.
+Iposi.exe: 00004458: 12:59:20 [TUniServerModule]:Server Shutdown Completed.
+Iposi.exe: 00004458: 12:59:20 []:<-------------------------------------------------------------->
+Iposi.exe: 00006704: 12:59:21 []:>--------------------------------------------------------------<
+Iposi.exe: 00006704: 12:59:21 [TUniServerModule]:Server First Init.
+Iposi.exe: 00006704: 12:59:21 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 00006704: 12:59:21 [TUniGUISessionManager]:Cache erase job created, Folder count: [1]
+Iposi.exe: 00006704: 12:59:21 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 00006704: 12:59:21 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 000069C4: 12:59:23 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: uxvs61XD71113A08498 ) : Addr: $01304B23
+Iposi.exe: 00006704: 13:00:52 [TUniServerModule]:Shutting Down Server.
+Iposi.exe: 00006704: 13:00:52 [TUniServerModule]:Stopping HTTP Server.
+Iposi.exe: 00006704: 13:00:53 [TUniServerModule]:HTTP Server Stopped.
+Iposi.exe: 00006704: 13:00:53 [TUniGUISessionManager]:Terminating Session manager.
+Iposi.exe: 00006704: 13:00:53 [TUniGUISessionManager]:Stopping Cache Eraser...
+Iposi.exe: 00006704: 13:00:53 [TUniGUISessionManager]:Cache Eraser Stopped.
+Iposi.exe: 00006704: 13:00:53 [TUniGUISessionManager]:Destroying Worker Threads.
+Iposi.exe: 00006704: 13:00:53 [TUniGUISessionManager]:Session manager terminated.
+Iposi.exe: 00006704: 13:00:53 [TUniWebSocketStack]:Terminating...
+Iposi.exe: 00006704: 13:00:53 [TUniGUIMessageQ]:Terminated.
+Iposi.exe: 00006704: 13:00:53 [TUniWebSocketStack]:Terminated.
+Iposi.exe: 00006704: 13:00:53 [TUniServerModule]:Server Shutdown Completed.
+Iposi.exe: 00006704: 13:00:53 []:<-------------------------------------------------------------->
+Iposi.exe: 00004534: 13:00:54 []:>--------------------------------------------------------------<
+Iposi.exe: 00004534: 13:00:54 [TUniServerModule]:Server First Init.
+Iposi.exe: 00004534: 13:00:54 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 00004534: 13:00:54 [TUniGUISessionManager]:Cache erase job created, Folder count: [1]
+Iposi.exe: 00004534: 13:00:54 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 00004534: 13:00:54 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 00003E94: 13:00:56 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: QeFK2y2tXt113A084AC ) : Addr: $00804B23
+Iposi.exe: 00006994: 13:01:07 [HandleFileRequest[127.0.0.1]]:File not found: C:\yusag\PROJECTS\iposi\Win32\Debug\.well-known\appspecific\com.chrome.devtools.json
+Iposi.exe: 00004534: 13:03:26 [TUniServerModule]:Shutting Down Server.
+Iposi.exe: 00004534: 13:03:26 [TUniServerModule]:Stopping HTTP Server.
+Iposi.exe: 00004534: 13:03:26 [TUniServerModule]:HTTP Server Stopped.
+Iposi.exe: 00004534: 13:03:26 [TUniGUISessionManager]:Terminating Session manager.
+Iposi.exe: 00004534: 13:03:26 [TUniGUISessionManager]:Stopping Cache Eraser...
+Iposi.exe: 00004534: 13:03:26 [TUniGUISessionManager]:Cache Eraser Stopped.
+Iposi.exe: 00004534: 13:03:26 [TUniGUISessionManager]:Destroying Worker Threads.
+Iposi.exe: 00004534: 13:03:26 [TUniGUISessionManager]:Session manager terminated.
+Iposi.exe: 00004534: 13:03:26 [TUniWebSocketStack]:Terminating...
+Iposi.exe: 00004534: 13:03:26 [TUniGUIMessageQ]:Terminated.
+Iposi.exe: 00004534: 13:03:26 [TUniWebSocketStack]:Terminated.
+Iposi.exe: 00004534: 13:03:26 [TUniServerModule]:Server Shutdown Completed.
+Iposi.exe: 00004534: 13:03:26 []:<-------------------------------------------------------------->
+Iposi.exe: 00004CB8: 13:03:28 []:>--------------------------------------------------------------<
+Iposi.exe: 00004CB8: 13:03:28 [TUniServerModule]:Server First Init.
+Iposi.exe: 00004CB8: 13:03:28 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 00004CB8: 13:03:28 [TUniGUISessionManager]:Cache erase job created, Folder count: [1]
+Iposi.exe: 00004CB8: 13:03:28 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 00004CB8: 13:03:28 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 000069D4: 13:03:30 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: RquaiHeMwV113A0852B ) : Addr: $009B4B23
+Iposi.exe: 00004CB8: 13:19:09 [TUniServerModule]:Shutting Down Server.
+Iposi.exe: 00004CB8: 13:19:09 [TUniServerModule]:Stopping HTTP Server.
+Iposi.exe: 00004CB8: 13:19:11 [TUniServerModule]:HTTP Server Stopped.
+Iposi.exe: 00004CB8: 13:19:11 [TUniGUISessionManager]:Terminating Session manager.
+Iposi.exe: 00004CB8: 13:19:11 [TUniGUISessionManager]:Stopping Cache Eraser...
+Iposi.exe: 00004CB8: 13:19:11 [TUniGUISessionManager]:Cache Eraser Stopped.
+Iposi.exe: 00004CB8: 13:19:11 [TUniGUISessionManager]:Destroying Worker Threads.
+Iposi.exe: 00004CB8: 13:19:11 [TUniGUISessionManager]:Session manager terminated.
+Iposi.exe: 00004CB8: 13:19:11 [TUniWebSocketStack]:Terminating...
+Iposi.exe: 00004CB8: 13:19:11 [TUniGUIMessageQ]:Terminated.
+Iposi.exe: 00004CB8: 13:19:11 [TUniWebSocketStack]:Terminated.
+Iposi.exe: 00004CB8: 13:19:11 [TUniServerModule]:Server Shutdown Completed.
+Iposi.exe: 00004CB8: 13:19:11 []:<-------------------------------------------------------------->
+Iposi.exe: 000005F4: 13:19:26 []:>--------------------------------------------------------------<
+Iposi.exe: 000005F4: 13:19:26 [TUniServerModule]:Server First Init.
+Iposi.exe: 000005F4: 13:19:26 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 000005F4: 13:19:26 [TUniGUISessionManager]:Cache erase job created, Folder count: [1]
+Iposi.exe: 000005F4: 13:19:26 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 000005F4: 13:19:26 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 000057A8: 13:19:29 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: 9Lwf2YGr1F113A0891C ) : Addr: $00985937
+Iposi.exe: 00005A64: 13:20:14 [HandleFileRequest[127.0.0.1]]:File not found: C:\yusag\PROJECTS\iposi\Win32\Debug\.well-known\appspecific\com.chrome.devtools.json
+Iposi.exe: 000005F4: 13:22:17 [TUniServerModule]:Shutting Down Server.
+Iposi.exe: 000005F4: 13:22:17 [TUniServerModule]:Stopping HTTP Server.
+Iposi.exe: 000005F4: 13:22:18 [TUniServerModule]:HTTP Server Stopped.
+Iposi.exe: 000005F4: 13:22:18 [TUniGUISessionManager]:Terminating Session manager.
+Iposi.exe: 000005F4: 13:22:18 [TUniGUISessionManager]:Stopping Cache Eraser...
+Iposi.exe: 000005F4: 13:22:18 [TUniGUISessionManager]:Cache Eraser Stopped.
+Iposi.exe: 000005F4: 13:22:18 [TUniGUISessionManager]:Destroying Worker Threads.
+Iposi.exe: 000005F4: 13:22:18 [TUniGUISessionManager]:Session manager terminated.
+Iposi.exe: 000005F4: 13:22:18 [TUniWebSocketStack]:Terminating...
+Iposi.exe: 000005F4: 13:22:18 [TUniGUIMessageQ]:Terminated.
+Iposi.exe: 000005F4: 13:22:18 [TUniWebSocketStack]:Terminated.
+Iposi.exe: 000005F4: 13:22:18 [TUniServerModule]:Server Shutdown Completed.
+Iposi.exe: 000005F4: 13:22:18 []:<-------------------------------------------------------------->
+Iposi.exe: 00004B38: 13:22:20 []:>--------------------------------------------------------------<
+Iposi.exe: 00004B38: 13:22:20 [TUniServerModule]:Server First Init.
+Iposi.exe: 00004B38: 13:22:20 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 00004B38: 13:22:20 [TUniGUISessionManager]:Cache erase job created, Folder count: [1]
+Iposi.exe: 00004B38: 13:22:20 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 00004B38: 13:22:20 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 00002190: 13:22:36 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: C42YX2ji82113A08A20 ) : Addr: $01095937
+Iposi.exe: 00000EC4: 14:10:13 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: WiZfLLxuAl113A09391 ) : Addr: $01095937

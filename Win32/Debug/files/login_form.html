@@ -1,0 +1,95 @@
+<div class="login-viewport">
+   <div id="loginCard" class="login-card-inner">
+      
+      <!-- GİRİŞ YAP YÜZÜ -->
+      <div id="faceFront" class="card-face">
+         <div id="cntFront" class="face-content active-content">
+            <h1>IPO<span>SI</span></h1>
+            <div class="input-group">
+               <label>Kullanıcı Adı</label>
+               <input id="l_user" class="login-input login-item" autocomplete="off" onkeydown="window.handleKey(event,'login')">
+            </div>
+            <div class="input-group">
+               <label>Şifre</label>
+               <input type="password" id="l_pass" class="login-input login-item pass-input" autocomplete="off" onkeydown="window.handleKey(event,'login')">
+               <i id="l_pass_icon" class="fa-solid fa-eye-slash toggle-password" onclick="window.togglePassword('l_pass')"></i>
+            </div>
+            <div class="login-options">
+               <label id="chkLabel" class="custom-checkbox login-item" onkeydown="window.handleKey(event,'login')">
+                  <input type="checkbox" id="chkRemember"> <span class="checkmark"></span> Oturum açık kalsın
+               </label>
+               <a id="l_forgot" class="forgot-link login-item" onclick="window.handleForgot()">Şifremi unuttum</a>
+            </div>
+            <button id="l_submit" class="login-btn login-item" onclick="window.submitAuth('login')">GİRİŞ YAP</button>
+            <div class="switch-mode">Hesabın yok mu? <a id="l_switchReg" class="login-item" onclick="window.rotateCard(true)">Hemen Kayıt Ol</a></div>
+         </div>
+      </div>
+      
+      <!-- KAYIT OL YÜZÜ -->
+      <div id="faceBack" class="card-face card-back">
+         <div id="cntBack" class="face-content">
+            <h1>KAYIT<span> OL</span></h1>
+            <div class="input-group">
+               <label>Kullanıcı Adı</label>
+               <input id="r_user" class="login-input reg-item" autocomplete="off" onkeydown="window.handleKey(event,'register')">
+               <div id="r_user_err" class="inline-error"></div>
+            </div>
+            <div class="input-group">
+               <label>E-Posta</label>
+               <input id="r_email" class="login-input reg-item" autocomplete="off" onkeydown="window.handleKey(event,'register')">
+               <div id="r_email_err" class="inline-error"></div>
+            </div>
+            <div class="input-group">
+               <label>Şifre</label>
+               <input type="password" id="r_pass" class="login-input reg-item pass-input" autocomplete="off" onkeydown="window.handleKey(event,'register')">
+               <i id="r_pass_icon" class="fa-solid fa-eye-slash toggle-password" onclick="window.togglePassword('r_pass')"></i>
+            </div>
+            <div class="input-group">
+               <label>Şifre Tekrar</label>
+               <input type="password" id="r_pass2" class="login-input reg-item pass-input" autocomplete="off" onkeydown="window.handleKey(event,'register')">
+               <i id="r_pass2_icon" class="fa-solid fa-eye-slash toggle-password" onclick="window.togglePassword('r_pass2')"></i>
+               <div id="r_pass2_err" class="inline-error"></div>
+            </div>
+            <div class="input-group">
+               <label>Doğrulama Kodu</label>
+               <div class="captcha-row">
+                  <input id="r_captcha" class="login-input reg-item" maxlength="6" autocomplete="off" onkeydown="window.handleKey(event,'register')">
+                  <div id="captchaDisplay" class="captcha-display" title="Yenilemek için tıkla" onclick="window.currentCaptcha = window.generateCaptcha();">...</div>
+               </div>
+               <div id="r_captcha_err" class="inline-error"></div>
+            </div>
+            <button id="r_submit" class="login-btn reg-item" onclick="window.submitAuth('register')">HESABIMI OLUŞTUR</button>
+            <div class="switch-mode">Zaten üye misin? <a id="r_switchLog" class="reg-item" onclick="window.rotateCard(false)">Giriş Yap</a></div>
+         </div>
+      </div>
+   </div>
+
+   <!-- MODAL -->
+   <div class="oct-modal-overlay" id="pwdResetModal">
+       <div class="oct-modal-content">
+           <div class="modal-header">
+               <h2 id="pwdModalTitle">ŞİFRE SIFIRLAMA</h2>
+               <i class="fa-solid fa-xmark close-modal" onclick="window.closePwdModal()"></i>
+           </div>
+           <div class="modal-body" id="pwdModalBody">
+               <p style="color: #818384; font-size: 0.9rem; margin-bottom: 15px;">Kayıtlı e-posta adresinizi girin.</p>
+               <input type="text" class="modal-input" placeholder="E-Posta Adresiniz">
+               <button class="modal-save-btn" onclick="window.closePwdModal()">SIFIRLAMA LİNKİ GÖNDER</button>
+           </div>
+       </div>
+   </div>
+</div>
+
+<!-- =========================================
+     IPOSI CUSTOM POPUP (HTML KALIBI)
+     ========================================= -->
+<div class="iposi-popup-overlay" id="iposiPopup">
+    <div class="iposi-popup-box">
+        <div class="iposi-popup-icon" id="iposiPopupIcon">
+            <!-- JS tarafından ikon basılacak -->
+        </div>
+        <h3 class="iposi-popup-title" id="iposiPopupTitle">Başlık</h3>
+        <p class="iposi-popup-message" id="iposiPopupMessage">Mesaj buraya gelecek.</p>
+        <button class="iposi-popup-btn" id="iposiPopupBtn" onclick="window.closeIposiPopup()">TAMAM</button>
+    </div>
+</div>

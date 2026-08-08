@@ -1,0 +1,199 @@
+<div class="workspace-container">
+    <!-- SOL SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>IPO<span>SI</span></h2>
+            <i class="fa-solid fa-gear" style="color: #818384; cursor:pointer; transition:0.2s;"
+                onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#818384'" title="Ayarlar"></i>
+        </div>
+        <div class="sidebar-tabs">
+            <div class="sidebar-tab active" onclick="window.switchSidebar('history')">History</div>
+            <div class="sidebar-tab" onclick="window.switchSidebar('collections')">Collections</div>
+        </div>
+        <div class="sidebar-content" id="sidebar-content">
+            <!-- Geçmiş kayıtları veritabanından dinamik olarak buraya basılacak -->
+        </div>
+    </div>
+
+    <!-- SAĞ ANA ÇALIŞMA ALANI -->
+    <div class="main-content">
+        <!-- ÇOKLU APİ SEKMELERİ (TABS) VE PROFİL -->
+        <div class="workspace-tabs">
+            <!-- Sekmelerin JS tarafından basılacağı taşıyıcı div -->
+            <div id="apiTabContainer" style="display: flex; overflow-x: auto; flex: 1;">
+                <!-- Dinamik sekmeler buraya gelecek -->
+            </div>
+
+            <div class="req-tab-add" title="New Request" onclick="window.addNewApiTab()">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+
+            <!-- SAĞ ÜST KULLANICI ALANI -->
+            <div class="user-profile">
+                <i class="fa-solid fa-circle-user user-avatar"></i>
+                <span class="user-name" id="loggedInUser">...</span>
+                <button class="btn-logout" onclick="window.logoutUser()" title="Çıkış Yap">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- URL ve GÖNDER BAR -->
+        <div class="request-bar">
+            <!-- Custom Method Seçici -->
+            <div class="custom-method-box" onclick="window.toggleMethodDropdown(event)">
+                <span id="selectedMethod" class="method-get">GET</span>
+                <i class="fa-solid fa-chevron-down" style="font-size:0.7rem; color:#818384;"></i>
+
+                <div class="custom-method-list" id="methodDropdown">
+                    <div class="method-option method-get" onclick="window.selectMethod('GET')">GET</div>
+                    <div class="method-option method-post" onclick="window.selectMethod('POST')">POST</div>
+                    <div class="method-option method-put" onclick="window.selectMethod('PUT')">PUT</div>
+                    <div class="method-option method-patch" onclick="window.selectMethod('PATCH')">PATCH</div>
+                    <div class="method-option method-delete" onclick="window.selectMethod('DELETE')">DELETE</div>
+                </div>
+            </div>
+
+            <input type="text" class="req-url" id="reqUrl"
+                placeholder="Enter request URL (e.g., https://api.example.com/v1/users)" value="">
+
+            <button class="btn-send" onclick="window.sendAPIRequest()">
+                <i class="fa-solid fa-paper-plane"></i> Send
+            </button>
+        </div>
+
+        <div class="workspace-body">
+            <!-- ÜST BÖLÜM: REQUEST -->
+            <div class="panel-section" id="reqPanelWrap">
+                <div class="panel-tabs">
+                    <div class="panel-tab active" onclick="window.switchTab('req', 'params', event)">Params</div>
+                    <div class="panel-tab" onclick="window.switchTab('req', 'headers', event)">Headers</div>
+                    <div class="panel-tab" onclick="window.switchTab('req', 'body', event)">Body</div>
+                </div>
+                <div class="panel-content">
+
+                    <div class="tab-pane active" id="req-params" style="padding: 10px;">
+                    <div class="kv-container">
+                        <div class="kv-header">
+                            <span>Key</span>
+                            <span>Value</span>
+                            <span></span>
+                        </div>
+                        <div id="paramsList" class="kv-list">
+                            <div id="paramsEmpty" class="kv-empty-text">No query parameters yet. Click '+ Add Parameter'
+                                to set them.</div>
+                        </div>
+                        <button class="kv-add-btn" onclick="window.addKvRow('params')">+ Add Parameter</button>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="req-headers" style="padding: 10px;">
+                    <div class="kv-container">
+                        <div class="kv-header">
+                            <span>Key</span>
+                            <span>Value</span>
+                            <span></span>
+                        </div>
+                        <div id="headersList" class="kv-list">
+                            <div id="headersEmpty" class="kv-empty-text">No headers yet. Click '+ Add Header' to set
+                                them.</div>
+                        </div>
+                        <button class="kv-add-btn" onclick="window.addKvRow('headers')">+ Add Header</button>
+                    </div>
+                </div>
+
+
+                <div class="tab-pane" id="req-body" style="padding: 10px; display: flex; flex-direction: column; height: 100%; box-sizing: border-box;">
+                        
+                        
+                        <div class="body-type-selector">
+                            <button class="btn-beautify" onclick="window.beautifyRawBody()" title="Kodu Düzenle">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> Beautify
+                            </button>
+                            
+                            <label><input type="radio" name="bodyType" value="none" onclick="window.changeBodyType('none')"> None</label>
+                            <label><input type="radio" name="bodyType" value="urlencoded" onclick="window.changeBodyType('urlencoded')"> x-www-form-urlencoded</label>
+                            <label><input type="radio" name="bodyType" value="raw" checked onclick="window.changeBodyType('raw')"> Raw</label>
+
+                            
+                            <select id="rawTypeDropdown" onchange="window.changeRawType(this.value)" class="raw-type-select">
+                                <option value="application/json">JSON</option>
+                                <option value="text/plain">Text</option>
+                                <option value="text/html">HTML</option>
+                                <option value="application/xml">XML</option>
+                                <option value="text/javascript">JavaScript</option>
+                            </select>
+                        </div>
+
+                       
+                        <div id="body-none" class="body-content-pane" style="display: none;">
+                            <div class="kv-empty-text" style="display: block;">This request does not have a body.</div>
+                        </div>
+
+                        
+                        <div id="body-urlencoded" class="body-content-pane" style="display: none;">
+                            <div class="kv-container">
+                                <div class="kv-header">
+                                    <span>Key</span>
+                                    <span>Value</span>
+                                    <span></span>
+                                </div>
+                                <div id="urlencodedList" class="kv-list">
+                                    <div id="urlencodedEmpty" class="kv-empty-text">No urlencoded parameters yet. Click '+ Add Parameter' to set them.</div>
+                                </div>
+                                <button class="kv-add-btn" onclick="window.addKvRow('urlencoded')">+ Add Parameter</button>
+                            </div>
+                        </div>
+
+                        
+                        <div id="body-raw" class="body-content-pane cm-container" style="display: block; flex: 1; position: relative; margin-top: 10px;">
+                            <textarea id="reqBodyContent"></textarea>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <!-- SÜRÜKLENEBİLİR AYIRICI (SPLITTER) -->
+        <div class="resizer-h" id="apiResizer" title="Yeniden Boyutlandır"></div>
+
+        <!-- ALT BÖLÜM: RESPONSE -->
+        <div class="panel-section response-section" id="resPanelWrap">
+            <div class="response-meta">
+                <div class="meta-item"><span>Status:</span>
+                    <div class="status-badge status-default" id="resStatus">000 WAITING</div>
+                </div>
+                <div class="meta-item" style="margin-left: 10px;"><span>Time:</span> <span class="meta-value"
+                        id="resTime" style="color:#4facfe;">0 ms</span></div>
+                <div class="meta-item"><span>Size:</span> <span class="meta-value" id="resSize" style="color:#818384;">0
+                        B</span></div>
+            </div>
+            <div class="panel-tabs">
+                <div class="panel-tab active" onclick="window.switchTab('res', 'body', event)">Body</div>
+                <div class="panel-tab" onclick="window.switchTab('res', 'headers', event)">Headers</div>
+            </div>
+            <div class="panel-content">
+                <div class="tab-pane active cm-container" id="res-body">
+                    <textarea id="resBodyContent"></textarea>
+                </div>
+                <div class="tab-pane" id="res-headers">
+                    <p style="color:#818384; font-size:0.9rem;">Response Headers listesi eklenecek.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- =========================================
+     IPOSI CUSTOM POPUP (HTML KALIBI)
+     ========================================= -->
+<div class="iposi-popup-overlay" id="iposiPopup">
+    <div class="iposi-popup-box">
+        <div class="iposi-popup-icon" id="iposiPopupIcon">
+            <!-- JS tarafından ikon basılacak -->
+        </div>
+        <h3 class="iposi-popup-title" id="iposiPopupTitle">Başlık</h3>
+        <p class="iposi-popup-message" id="iposiPopupMessage">Mesaj buraya gelecek.</p>
+        <button class="iposi-popup-btn" id="iposiPopupBtn" onclick="window.closeIposiPopup()">TAMAM</button>
+    </div>
+</div>
