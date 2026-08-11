@@ -7,6 +7,12 @@ The idea behind Iposi started from a simple need: having an API tool that works 
 The name "Iposi" comes from the language Zulu word for "postman".
 
 ---
+## Screenshots and Demo Video
+
+![Screenshot 1](assets/ss1.png)
+* The main workspace of Iposi.
+
+---
 
 ## Features
 

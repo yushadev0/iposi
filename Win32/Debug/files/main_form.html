@@ -4,14 +4,26 @@
         <div class="sidebar-header">
             <h2>IPO<span>SI</span></h2>
             <i class="fa-solid fa-gear" style="color: #818384; cursor:pointer; transition:0.2s;"
-                onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#818384'" title="Ayarlar"></i>
+                onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#818384'" title="Settings"></i>
         </div>
+        
+        <!-- Sekmeler (Olay dinleyicilerine 'event' parametresini ekledik) -->
         <div class="sidebar-tabs">
-            <div class="sidebar-tab active" onclick="window.switchSidebar('history')">History</div>
-            <div class="sidebar-tab" onclick="window.switchSidebar('collections')">Collections</div>
+            <div class="sidebar-tab active" onclick="window.switchSidebar('history', event)">History</div>
+            <div class="sidebar-tab" onclick="window.switchSidebar('collections', event)">Collections</div>
         </div>
+        
         <div class="sidebar-content" id="sidebar-content">
-            <!-- Geçmiş kayıtları veritabanından dinamik olarak buraya basılacak -->
+            <!-- HISTORY (GEÇMİŞ) BÖLMESİ -->
+            <div id="history-pane" style="display: block;">
+                <!-- Geçmiş kayıtları JS tarafından buraya basılacak -->
+            </div>
+            
+            <!-- COLLECTIONS BÖLMESİ -->
+            <div id="collections-pane" style="display: none; text-align: center; margin-top: 30px;">
+                <i class="fa-solid fa-layer-group" style="font-size: 2rem; color: #3a3a3c; margin-bottom: 15px;"></i>
+                <div style="color: #818384; font-size: 0.9rem; font-weight: 600;">Collections<br>Coming soon.</div>
+            </div>
         </div>
     </div>
 
@@ -32,7 +44,7 @@
             <div class="user-profile">
                 <i class="fa-solid fa-circle-user user-avatar"></i>
                 <span class="user-name" id="loggedInUser">...</span>
-                <button class="btn-logout" onclick="window.logoutUser()" title="Çıkış Yap">
+                <button class="btn-logout" onclick="window.logoutUser()" title="Log Out">
                     <i class="fa-solid fa-right-from-bracket"></i>
                 </button>
             </div>
@@ -65,10 +77,19 @@
         <div class="workspace-body">
             <!-- ÜST BÖLÜM: REQUEST -->
             <div class="panel-section" id="reqPanelWrap">
-                <div class="panel-tabs">
-                    <div class="panel-tab active" onclick="window.switchTab('req', 'params', event)">Params</div>
-                    <div class="panel-tab" onclick="window.switchTab('req', 'headers', event)">Headers</div>
-                    <div class="panel-tab" onclick="window.switchTab('req', 'body', event)">Body</div>
+                <div class="panel-tabs" style="display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex;">
+                        <div class="panel-tab active" onclick="window.switchTab('req', 'params', event)">Params</div>
+                        <div class="panel-tab" onclick="window.switchTab('req', 'headers', event)">Headers</div>
+                        <div class="panel-tab" onclick="window.switchTab('req', 'body', event)">Body</div>
+                    </div>
+                    
+                    <!-- YENİ: Geçmişe Kaydet Checkbox (Switch Tasarım) -->
+                    <label class="custom-checkbox history-toggle-cb" style="margin-right: 15px; margin-bottom: 0;" title="İsteği geçmişe (History) kaydet">
+                        <span style="font-size: 0.8rem; font-weight: 700;">Save To History</span>
+                        <input type="checkbox" id="chkSaveHistory" checked>
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
                 <div class="panel-content">
 
@@ -103,11 +124,11 @@
                 </div>
 
 
-                <div class="tab-pane" id="req-body" style="padding: 10px; display: flex; flex-direction: column; height: 100%; box-sizing: border-box;">
+                <div class="tab-pane" id="req-body" style="padding: 10px; flex-direction: column; height: 100%; box-sizing: border-box;">
                         
                         
                         <div class="body-type-selector">
-                            <button class="btn-beautify" onclick="window.beautifyRawBody()" title="Kodu Düzenle">
+                            <button class="btn-beautify" onclick="window.beautifyRawBody()" title="Beautify">
                                 <i class="fa-solid fa-wand-magic-sparkles"></i> Beautify
                             </button>
                             
@@ -154,7 +175,7 @@
         </div>
 
         <!-- SÜRÜKLENEBİLİR AYIRICI (SPLITTER) -->
-        <div class="resizer-h" id="apiResizer" title="Yeniden Boyutlandır"></div>
+        <div class="resizer-h" id="apiResizer" title="Resize"></div>
 
         <!-- ALT BÖLÜM: RESPONSE -->
         <div class="panel-section response-section" id="resPanelWrap">
@@ -176,7 +197,7 @@
                     <textarea id="resBodyContent"></textarea>
                 </div>
                 <div class="tab-pane" id="res-headers">
-                    <p style="color:#818384; font-size:0.9rem;">Response Headers listesi eklenecek.</p>
+                    <p style="color:#818384; font-size:0.9rem;">Response Headers will be listed here.</p>
                 </div>
             </div>
         </div>
@@ -192,8 +213,8 @@
         <div class="iposi-popup-icon" id="iposiPopupIcon">
             <!-- JS tarafından ikon basılacak -->
         </div>
-        <h3 class="iposi-popup-title" id="iposiPopupTitle">Başlık</h3>
-        <p class="iposi-popup-message" id="iposiPopupMessage">Mesaj buraya gelecek.</p>
-        <button class="iposi-popup-btn" id="iposiPopupBtn" onclick="window.closeIposiPopup()">TAMAM</button>
+        <h3 class="iposi-popup-title" id="iposiPopupTitle">Title</h3>
+        <p class="iposi-popup-message" id="iposiPopupMessage">Message will appear here.</p>
+        <button class="iposi-popup-btn" id="iposiPopupBtn" onclick="window.closeIposiPopup()">OK</button>
     </div>
 </div>

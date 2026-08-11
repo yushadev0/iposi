@@ -27,4 +27,9 @@ object UniMainModule: TUniMainModule
     Left = 64
     Top = 24
   end
+  object ApiHistoryTable: TUniQuery
+    Connection = UniConnection1
+    Left = 352
+    Top = 104
+  end
 end

@@ -12,6 +12,7 @@ type
     GirisTable: TUniQuery;
     TokenTable: TUniQuery;
     SQLServerUniProvider1: TSQLServerUniProvider;
+    ApiHistoryTable: TUniQuery;
     procedure UniGUIMainModuleCreate(Sender: TObject);
     procedure UniGUIMainModuleBrowserClose(Sender: TObject);
   private
@@ -19,6 +20,7 @@ type
   public
     { Public declarations }
     LoggedUserName: string;
+    LoggedUserId: Integer;
   end;
 
 function UniMainModule: TUniMainModule;

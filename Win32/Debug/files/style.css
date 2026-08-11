@@ -1187,3 +1187,114 @@ h1 span {
     outline: none;
     box-sizing: border-box;
 }
+
+.req-tab.dragging {
+    opacity: 0.4;
+}
+
+.req-tab.drag-over {
+    border: 1px dashed #4facfe !important;
+    background: rgba(79, 172, 254, 0.1) !important;
+}
+
+#req-body.tab-pane.active {
+    display: flex !important;
+}
+
+/* =========================================
+   HISTORY KART TASARIMI
+   ========================================= */
+.history-card {
+    background: #1a1a1c;
+    border: 1px solid #2a2a2c;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.history-card:hover {
+    border-color: #4facfe;
+    background: #222224;
+}
+
+.history-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-badges {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.history-tab-name {
+    font-size: 0.75rem;
+    color: #d4d4d4;
+    font-weight: 600;
+    max-width: 90px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: right;
+}
+
+.history-card-url {
+    font-size: 0.8rem;
+    color: #818384;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.history-card-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.history-del-btn {
+    background: transparent;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    padding: 2px 5px;
+}
+
+.history-del-btn:hover {
+    color: #e74c3c;
+    transform: scale(1.15);
+}
+
+/* =========================================
+   BALON PATLAMA EFEKTİ (POP ANIMATION)
+   ========================================= */
+@keyframes popEffect {
+    0% { transform: scale(1); opacity: 1; }
+    40% { transform: scale(1.15); opacity: 1; } /* Önce biraz şişer */
+    100% { transform: scale(0); opacity: 0; }   /* Sonra aniden patlayarak yok olur */
+}
+
+.history-card.popping {
+    animation: popEffect 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    pointer-events: none; /* Animasyon sırasında tıklanmayı engeller */
+    border-color: #ff6c37; /* Patlarken anlık turuncu bir parlama verir */
+}
+
+.history-toggle-cb {
+    transition: 0.2s;
+}
+.history-toggle-cb:hover {
+    color: #fff;
+}
+.history-toggle-cb input:checked + .checkmark {
+    background: #4facfe; /* Aktifken Iposi mavisi olsun */
+}

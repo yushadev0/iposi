@@ -76,6 +76,7 @@ begin
       if not IsEmpty then
       begin
         UniMainModule.LoggedUserName := FieldByName('username').AsString;
+        UniMainModule.LoggedUserId := FieldByName('user_id').AsInteger;
         Self.ModalResult := mrOk;
         Exit;
       end
@@ -164,6 +165,7 @@ begin
       begin
         LUserId := FieldByName('id').AsInteger;
         UniMainModule.LoggedUserName := FieldByName('username').Text;
+        UniMainModule.LoggedUserId := FieldByName('id').AsInteger;
 
         if LRemember = '1' then
         begin

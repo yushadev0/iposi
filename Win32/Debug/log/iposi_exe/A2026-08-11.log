@@ -1,0 +1,45 @@
+Iposi.exe: 0000686C: 10:32:56 []:>--------------------------------------------------------------<
+Iposi.exe: 0000686C: 10:32:56 [TUniServerModule]:Server First Init.
+Iposi.exe: 0000686C: 10:32:56 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 0000686C: 10:32:56 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 0000686C: 10:32:56 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 0000686C: 10:35:43 [TUniServerModule]:Shutting Down Server.
+Iposi.exe: 0000686C: 10:35:43 [TUniServerModule]:Stopping HTTP Server.
+Iposi.exe: 0000686C: 10:35:44 [TUniServerModule]:HTTP Server Stopped.
+Iposi.exe: 0000686C: 10:35:44 [TUniGUISessionManager]:Terminating Session manager.
+Iposi.exe: 0000686C: 10:35:44 [TUniGUISessionManager]:Stopping Cache Eraser...
+Iposi.exe: 0000686C: 10:35:44 [TUniGUISessionManager]:Cache Eraser Stopped.
+Iposi.exe: 0000686C: 10:35:44 [TUniGUISessionManager]:Destroying Worker Threads.
+Iposi.exe: 0000686C: 10:35:44 [TUniGUISessionManager]:Session manager terminated.
+Iposi.exe: 0000686C: 10:35:44 [TUniWebSocketStack]:Terminating...
+Iposi.exe: 0000686C: 10:35:44 [TUniGUIMessageQ]:Terminated.
+Iposi.exe: 0000686C: 10:35:44 [TUniWebSocketStack]:Terminated.
+Iposi.exe: 0000686C: 10:35:44 [TUniServerModule]:Server Shutdown Completed.
+Iposi.exe: 0000686C: 10:35:44 []:<-------------------------------------------------------------->
+Iposi.exe: 00006508: 10:35:46 []:>--------------------------------------------------------------<
+Iposi.exe: 00006508: 10:35:46 [TUniServerModule]:Server First Init.
+Iposi.exe: 00006508: 10:35:46 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 00006508: 10:35:46 [TUniGUISessionManager]:Cache erase job created, Folder count: [1]
+Iposi.exe: 00006508: 10:35:46 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 00006508: 10:35:46 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 00006D98: 10:35:58 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: 2ypxhhqGBS113A4F0D7 ) : Addr: $007B5937
+Iposi.exe: 00006508: 10:46:17 [TUniServerModule]:Shutting Down Server.
+Iposi.exe: 00006508: 10:46:17 [TUniServerModule]:Stopping HTTP Server.
+Iposi.exe: 00006508: 10:46:18 [TUniServerModule]:HTTP Server Stopped.
+Iposi.exe: 00006508: 10:46:18 [TUniGUISessionManager]:Terminating Session manager.
+Iposi.exe: 00006508: 10:46:18 [TUniGUISessionManager]:Stopping Cache Eraser...
+Iposi.exe: 00006508: 10:46:18 [TUniGUISessionManager]:Cache Eraser Stopped.
+Iposi.exe: 00006508: 10:46:18 [TUniGUISessionManager]:Destroying Worker Threads.
+Iposi.exe: 00006508: 10:46:18 [TUniGUISessionManager]:Session manager terminated.
+Iposi.exe: 00006508: 10:46:18 [TUniWebSocketStack]:Terminating...
+Iposi.exe: 00006508: 10:46:18 [TUniGUIMessageQ]:Terminated.
+Iposi.exe: 00006508: 10:46:18 [TUniWebSocketStack]:Terminated.
+Iposi.exe: 00006508: 10:46:18 [TUniServerModule]:Server Shutdown Completed.
+Iposi.exe: 00006508: 10:46:18 []:<-------------------------------------------------------------->
+Iposi.exe: 00003CFC: 10:46:52 []:>--------------------------------------------------------------<
+Iposi.exe: 00003CFC: 10:46:52 [TUniServerModule]:Server First Init.
+Iposi.exe: 00003CFC: 10:46:52 [TUniServerModule]:Start Path = C:\yusag\PROJECTS\iposi\Win32\Debug\
+Iposi.exe: 00003CFC: 10:46:52 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Iposi.exe: 00003CFC: 10:46:52 [TUniServerModule]:HTTP Server Started on Port: 8077
+Iposi.exe: 00006858: 10:46:52 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: oVOPNF2FSF113A4F1A5 ) : Addr: $006A5937
+Iposi.exe: 00006858: 10:46:52 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: oVOPNF2FSF113A4F1A5 ) : Addr: $006A5937
