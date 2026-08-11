@@ -9,8 +9,8 @@ The name "Iposi" comes from the language Zulu word for "postman".
 ---
 ## Screenshots and Demo Video
 
-<video src:"https://github.com/yushadev0/iposi/raw/refs/heads/main/assets/iposi_demo.mp4" controls width="100%">
-</video>
+<video src:"https://github.com/yushadev0/iposi/raw/refs/heads/main/assets/iposi_demo.mp4" controls width="100%"></video>
+
 
 ![Screenshot 1](assets/ss1.png)
 * The main workspace of Iposi.
