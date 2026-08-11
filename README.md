@@ -6,7 +6,7 @@ The idea behind Iposi started from a simple need: having an API tool that works 
 
 The name "Iposi" comes from the language Zulu word for "postman".
 
-You can use Iposi form [here](https://hasup.net/iposi). 
+You can use Iposi from [here](https://hasup.net/iposi). 
 
 ---
 ## Screenshots and Demo Video
@@ -26,7 +26,7 @@ You can use Iposi form [here](https://hasup.net/iposi).
 * Multiple API requests can be opened in separate tabs.
 * Create new request tabs.
 * Switch between requests without losing their state.
-* Close and reorder request tabs.
+* Close, reorder and rename request tabs.
 * HTTP method and URL are managed directly from the request bar.
 
 ### HTTP Methods
@@ -147,8 +147,9 @@ The current workflow is:
 * ~~Request Headers~~
 * ~~Request Body~~
 * ~~Response Viewer~~
-* History
+* ~~History~~
 * Collections
+* **Iposi Local API Agent (to connect and test localhost APIs)**
 * Environment Variables
 * Authentication Management
 * Response Headers
@@ -164,7 +165,9 @@ The current workflow is:
 
 Iposi is an ongoing personal project.
 
-The current version is functional, but the project is still being developed and new features are being added gradually.
+The current version is functional, but the project is still being developed and new features are being added gradually. 
+
+**Upcoming Milestone:** One of the most significant upcoming features is a dedicated **Local API Agent**. Currently, web-based API clients struggle to reach local development servers. In the near future, we will begin developing a lightweight local agent that will allow Iposi to securely tunnel and connect to local APIs (localhost) and internal networks without any hassle.
 
 The roadmap is intentionally flexible. Features are added based on actual usage and requirements rather than trying to reproduce every feature of existing API clients.
 

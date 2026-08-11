@@ -43,3 +43,16 @@ Iposi.exe: 00003CFC: 10:46:52 [TUniServerModule]:Starting HTTP Server on Port: 8
 Iposi.exe: 00003CFC: 10:46:52 [TUniServerModule]:HTTP Server Started on Port: 8077
 Iposi.exe: 00006858: 10:46:52 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: oVOPNF2FSF113A4F1A5 ) : Addr: $006A5937
 Iposi.exe: 00006858: 10:46:52 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: oVOPNF2FSF113A4F1A5 ) : Addr: $006A5937
+Iposi.exe: 00003CFC: 11:15:07 [TUniServerModule]:Shutting Down Server.
+Iposi.exe: 00003CFC: 11:15:07 [TUniServerModule]:Stopping HTTP Server.
+Iposi.exe: 00003CFC: 11:15:07 [TUniServerModule]:HTTP Server Stopped.
+Iposi.exe: 00003CFC: 11:15:07 [TUniGUISessionManager]:Terminating Session manager.
+Iposi.exe: 00003CFC: 11:15:07 [TUniGUISessionManager]:Stopping Cache Eraser...
+Iposi.exe: 00003CFC: 11:15:07 [TUniGUISessionManager]:Cache Eraser Stopped.
+Iposi.exe: 00003CFC: 11:15:07 [TUniGUISessionManager]:Destroying Worker Threads.
+Iposi.exe: 00003CFC: 11:15:07 [TUniGUISessionManager]:Session manager terminated.
+Iposi.exe: 00003CFC: 11:15:07 [TUniWebSocketStack]:Terminating...
+Iposi.exe: 00003CFC: 11:15:07 [TUniGUIMessageQ]:Terminated.
+Iposi.exe: 00003CFC: 11:15:07 [TUniWebSocketStack]:Terminated.
+Iposi.exe: 00003CFC: 11:15:07 [TUniServerModule]:Server Shutdown Completed.
+Iposi.exe: 00003CFC: 11:15:07 []:<-------------------------------------------------------------->
