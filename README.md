@@ -6,7 +6,8 @@ The idea behind Iposi started from a simple need: having an API tool that works 
 
 The name "Iposi" comes from the language Zulu word for "postman".
 
-You can use Iposi from [here](https://hasup.net/iposi). 
+You can use Iposi from [here](https://hasup.net/iposi).
+If you want to test local API's you have to use [Iposi Agent](https://github.com/yushadev0/iposi-agent).
 
 ---
 ## Screenshots and Demo Video
@@ -149,7 +150,7 @@ The current workflow is:
 * ~~Response Viewer~~
 * ~~History~~
 * Collections
-* **Iposi Local API Agent (to connect and test localhost APIs)**
+* ~~**Iposi Local API Agent (to connect and test localhost APIs)**~~
 * Environment Variables
 * Authentication Management
 * Response Headers
