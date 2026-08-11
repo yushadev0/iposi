@@ -1,0 +1,10 @@
+﻿# Delphi Files and Folders
+*.dcu
+*.identcache
+*.local
+*.stat
+*.res
+__history/
+__recovery/
+Win64/
+SecretConsts.pas
