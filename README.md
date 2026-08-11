@@ -6,11 +6,13 @@ The idea behind Iposi started from a simple need: having an API tool that works 
 
 The name "Iposi" comes from the language Zulu word for "postman".
 
+You can use Iposi form [here](https://hasup.net/iposi). 
+
 ---
 ## Screenshots and Demo Video
 
-<video src:"https://github.com/yushadev0/iposi/raw/refs/heads/main/assets/iposi_demo.mp4" controls width="100%"></video>
-
+![GIF 1](assets/iposi_demo.gif)
+* A demo usage of Iposi.
 
 ![Screenshot 1](assets/ss1.png)
 * The main workspace of Iposi.
