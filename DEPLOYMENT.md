@@ -209,6 +209,22 @@ existing accounts sign in unchanged.
 
 ## 7. Updating
 
+Once the first deploy is done, use the bundled script for every subsequent
+release — it pulls, rebuilds, republishes both halves, restarts the service and
+waits for the health check:
+
+```bash
+cd iposi
+./scripts/deploy.sh
+```
+
+Flags: `--no-pull` (deploy the working tree), `--no-build` (reuse existing
+`dist/`). Paths are overridable via `IPOSI_WEB_ROOT`, `IPOSI_API_DIR`,
+`IPOSI_SERVICE`, `IPOSI_HEALTH_URL`.
+
+<details>
+<summary>Equivalent manual steps</summary>
+
 ```bash
 cd iposi && git pull
 ( cd server && npm ci && npm run build )
@@ -224,8 +240,7 @@ sudo systemctl restart iposi-api
 curl -s http://127.0.0.1:3001/api/health ; echo
 ```
 
-If `server` dependencies are unchanged, skip its `npm ci` — just refresh
-`dist/` and restart.
+</details>
 
 ---
 
