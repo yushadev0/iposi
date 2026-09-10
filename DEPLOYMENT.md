@@ -1,120 +1,96 @@
-# Deploying Iposi to `https://yusa.app/iposi/`
+# Deployment
 
-Same shape as the `telemetria` deployment: a static Vite build served by nginx
-under a sub-path, plus a small Node API reverse-proxied at `…/iposi/api/`.
+Iposi is a static Vite build served by nginx under the `/iposi/` sub-path, plus
+a Node API reverse-proxied at `/iposi/api/`. The examples below use the domain
+`yusa.app` (the live instance) — substitute your own.
 
 ```
-browser ──► nginx (yusa.app, :443)
+browser ──► nginx (:443)
               ├─ /iposi/            → static files   (/var/www/iposi)
               └─ /iposi/api/  ──►   127.0.0.1:3001   (Node API, systemd)
-                                        └─► MSSQL  <db-host>\<INSTANCE>  (db "iposi")
+                                        └─► SQL Server   (database "iposi")
 ```
 
-Nothing in the database changes — the Node API talks to the **existing**
-`users`, `user_tokens` and `api_history` tables, and reuses the exact SHA-256
-password hashing, so accounts created by the old Delphi app keep working.
-
-This guide is the **build-on-the-server** flow that was actually used: the repo
-is cloned to `~/iposi-react` on the VM and everything is done there — no
-`rsync`-over-SSH from a laptop.
+The API expects the `users`, `user_tokens` and `api_history` tables to already
+exist in the target database.
 
 ---
 
-## 0. Server prerequisites (one time)
+## 1. Prerequisites
 
-### 0a. Broken SSH client config (only if `git` / `rsync` over SSH fails)
+- **Node 20+** with a matching npm. Install it system-wide (systemd runs
+  `/usr/bin/node`), e.g. via NodeSource:
 
-Symptom: `/etc/ssh/ssh_config: line NN: Bad configuration option: permitrootlogin`.
-`PermitRootLogin` is an **sshd** option that was pasted into the **client**
-config. Comment it out:
+  ```bash
+  curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+  node -v
+  ```
 
-```bash
-sudo cp /etc/ssh/ssh_config /etc/ssh/ssh_config.bak
-sudo sed -i 's/^[[:space:]]*[Pp]ermit[Rr]oot[Ll]ogin.*/# &  (belongs in sshd_config)/' /etc/ssh/ssh_config
-ssh -G localhost >/dev/null && echo "ssh_config OK"
-```
+- **nginx** with the site's TLS server block already configured.
+- **SQL Server** reachable from the host, with the three tables above.
+- Enough disk for the client's dev toolchain during `npm ci` (~300 MB, build
+  only).
 
-### 0b. IPv6 is advertised but unroutable (breaks `npm`, `curl`, `apt`)
+---
 
-Symptom: `ping registry.npmjs.org` resolves to a `2606:...` address with 100%
-packet loss; `npm ci` dies with `ECONNRESET`. Make the whole system prefer IPv4:
+## 2. Build
 
-```bash
-echo 'precedence ::ffff:0:0/96  100' | sudo tee -a /etc/gai.conf
-# verify
-curl -sI https://registry.npmjs.org/ | head -1     # HTTP/2 200
-```
-
-### 0c. Node 22 LTS, system-wide
-
-The default distro Node (18) is too old for some `mssql` sub-dependencies
-(`@azure/*` want Node ≥ 20/22) and systemd needs `/usr/bin/node`, so install
-NodeSource's system package rather than a per-user nvm:
+Clone the repo on the host (or build elsewhere and copy `client/dist` +
+`server/dist` over):
 
 ```bash
-curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-sudo apt-get install -y nodejs
-node -v        # v22.x, npm 10.x
+git clone https://github.com/yushadev0/iposi.git
+cd iposi
+
+( cd server && npm ci && npm run build )   # → server/dist
+( cd client && npm ci && npm run build )   # → client/dist   (base = /iposi/)
 ```
 
 ---
 
-## 1. Get the code and build (on the server)
-
-```bash
-cd ~
-git clone <your-repo-url> iposi-react      # or: git -C iposi-react pull
-cd iposi-react
-
-export NODE_OPTIONS=--dns-result-order=ipv4first   # belt-and-braces, see 0b
-
-( cd server && npm ci --no-audit --no-fund && npm run build )   # → server/dist
-( cd client && npm ci --no-audit --no-fund && npm run build )   # → client/dist  (base = /iposi/)
-```
-
-`client` pulls the heavy dev toolchain (vite, codemirror). If its `npm ci` keeps
-resetting, retry 2–3 times or run `npm install --no-audit --no-fund`. `server`
-has only ~6 prod deps and installs quickly.
-
----
-
-## 2. Publish the static front-end
+## 3. Deploy the web client
 
 ```bash
 sudo mkdir -p /var/www/iposi
-sudo rsync -a --delete ~/iposi-react/client/dist/ /var/www/iposi/
+sudo rsync -a --delete client/dist/ /var/www/iposi/
 sudo chown -R www-data:www-data /var/www/iposi
 ```
 
 ---
 
-## 3. Publish the API
+## 4. Deploy the API
 
 ```bash
 sudo mkdir -p /opt/iposi-api
-sudo rsync -a --delete ~/iposi-react/server/dist/ /opt/iposi-api/dist/
-sudo cp ~/iposi-react/server/package.json ~/iposi-react/server/package-lock.json /opt/iposi-api/
-( cd /opt/iposi-api && sudo npm ci --omit=dev --no-audit --no-fund )
+sudo rsync -a --delete server/dist/ /opt/iposi-api/dist/
+sudo cp server/package.json server/package-lock.json /opt/iposi-api/
+( cd /opt/iposi-api && sudo npm ci --omit=dev )
 ```
 
-Create `/opt/iposi-api/.env` (it is **not** in git):
+Create `/opt/iposi-api/.env` (not tracked in git). See
+[`server/.env.example`](server/.env.example) for every key.
 
 ```bash
 sudo tee /opt/iposi-api/.env >/dev/null <<'EOF'
 PORT=3001
 NODE_ENV=production
-DB_SERVER=__DB_HOST__
-DB_INSTANCE=__INSTANCE__
+
+DB_SERVER=your-sql-host
+DB_INSTANCE=SQLEXPRESS         # or leave blank and set DB_PORT
 DB_PORT=
-DB_USER=__DB_USER__
-DB_PASSWORD=__SET_ME__
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
 DB_NAME=iposi
 DB_ENCRYPT=false
 DB_TRUST_SERVER_CERT=true
-SESSION_SECRET=__SET_ME__
+
+SESSION_SECRET=replace_with_a_long_random_string
 COOKIE_SECURE=true
 COOKIE_SAMESITE=lax
+
 CORS_ORIGIN=https://yusa.app
+
 PROXY_TIMEOUT_MS=15000
 PROXY_MAX_BYTES=10485760
 EOF
@@ -122,17 +98,13 @@ sudo chmod 600 /opt/iposi-api/.env
 sudo chown -R www-data:www-data /opt/iposi-api
 ```
 
-* `SESSION_SECRET` — generate once:
+- Generate `SESSION_SECRET`:
   `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`
-* **MSSQL named instance:** a named instance needs the SQL Browser service
-  (UDP 1434) reachable from the VM. If it is not, set a static TCP port on the
-  instance and use `DB_PORT=1433` with `DB_INSTANCE=` left empty.
+- A **named instance** (`DB_INSTANCE`) needs the SQL Browser service (UDP 1434)
+  reachable from the host. Otherwise leave `DB_INSTANCE` blank and set
+  `DB_PORT` to the instance's static TCP port.
 
----
-
-## 4. systemd unit
-
-Write it in **one** clean heredoc (paste the whole block at once):
+### systemd service
 
 ```bash
 sudo tee /etc/systemd/system/iposi-api.service >/dev/null <<'EOF'
@@ -160,43 +132,41 @@ EOF
 
 sudo systemctl daemon-reload
 sudo systemctl enable --now iposi-api
-sleep 3
-sudo journalctl -u iposi-api -n 40 --no-pager
+sudo systemctl status iposi-api --no-pager
+```
+
+Check it:
+
+```bash
 curl -s http://127.0.0.1:3001/api/health ; echo
 ```
 
-Expected log: `[iposi] API listening on :3001 (prod)` then `[db] connected …`.
-Health should return `{"status":"ok","db":"up"}`.
-
-* `{"status":"degraded","db":"down"}` → API is up but can't reach MSSQL; check
-  the journal and the named-instance note in step 3.
-* empty response → you queried before boot finished, or it isn't listening:
-  `sudo ss -ltnp | grep 3001`.
+- `{"status":"ok","db":"up"}` — ready.
+- `{"status":"degraded","db":"down"}` — API is up but can't reach SQL Server;
+  see `journalctl -u iposi-api -n 50` and the named-instance note above.
+- empty / connection refused — not listening yet or crashed:
+  `sudo ss -ltnp | grep 3001` and check the journal.
 
 ---
 
 ## 5. nginx
 
-Find the `yusa.app` server block (telemetria lives there too):
+Add the following inside the site's `server { listen 443 ssl; server_name
+yusa.app; … }` block.
 
-```bash
-sudo grep -rl 'server_name .*yusa\.app' /etc/nginx/
-```
-
-Inside its `server { listen 443 ssl; server_name yusa.app; … }` block add the
-following. **Use `root /var/www;`, not `alias`** — an `alias` inside a regex
-`location` (the assets cache rule) maps every file to the directory itself and
-returns `403`.
+> Use `root /var/www;`, **not** `alias`. `alias` inside a regex `location` (the
+> asset-cache rule) resolves every request to the directory itself and returns
+> `403`.
 
 ```nginx
-# ---- Iposi static front-end ----
+# ---- Iposi web client ----
 location /iposi/ {
-    root /var/www;                     # /var/www + /iposi/...  →  /var/www/iposi/...
+    root /var/www;                     # /var/www + /iposi/...  ->  /var/www/iposi/...
     try_files $uri $uri/ /iposi/index.html;
 }
 location = /iposi { return 301 /iposi/; }
 
-# long cache for the content-hashed assets (root + regex location works fine)
+# content-hashed assets: long cache
 location ~* ^/iposi/assets/.+\.(js|css|woff2?|png|svg|ico)$ {
     root /var/www;
     expires 30d;
@@ -204,8 +174,8 @@ location ~* ^/iposi/assets/.+\.(js|css|woff2?|png|svg|ico)$ {
 }
 
 # ---- Iposi API ----
-# The trailing "/api/" on proxy_pass strips the "/iposi" prefix, so the Node app
-# still sees "/api/auth/...", "/api/request", etc.
+# The trailing "/api/" on proxy_pass strips the "/iposi" prefix, so the Node
+# app still sees "/api/auth/...", "/api/request", etc.
 location /iposi/api/ {
     proxy_pass http://127.0.0.1:3001/api/;
     proxy_http_version 1.1;
@@ -222,52 +192,75 @@ location /iposi/api/ {
 sudo nginx -t && sudo systemctl reload nginx
 ```
 
-### Verify
+---
+
+## 6. Verify
 
 ```bash
-curl -s  https://yusa.app/iposi/api/health                       # {"status":"ok","db":"up"}
-curl -sI https://yusa.app/iposi/                                 # 200, text/html
-curl -sI https://yusa.app/iposi/assets/index-*.css               # 200, text/css
+curl -s  https://yusa.app/iposi/api/health          # {"status":"ok","db":"up"}
+curl -sI https://yusa.app/iposi/                    # 200, text/html
+curl -sI https://yusa.app/iposi/assets/index-*.css  # 200, text/css
 ```
 
-Open `https://yusa.app/iposi/` — you should get the login screen. Existing Iposi
-accounts (created by the Delphi app) log in unchanged.
+Then open `https://yusa.app/iposi/` — the login screen should load, and
+existing accounts sign in unchanged.
 
 ---
 
-## 6. Local Agent (localhost testing)
-
-Unchanged. Users keep running `IposiAgent.exe` (System Tray, port `19090`,
-`Access-Control-Allow-Origin: *`). The web app auto-detects `localhost` /
-`127.0.0.1` URLs and `fetch()`es them straight through the agent from the
-browser — loopback HTTP is allowed from an HTTPS page in Chrome/Firefox, so
-there is no mixed-content problem. If the agent is not running the response pane
-shows `AGENT ERROR` with the "please ensure IposiAgent is running" message,
-exactly like the original.
-
-Optionally repoint the agent's tray "Open Iposi" link and its README URL from
-`https://hasup.net/iposi` to `https://yusa.app/iposi`.
-
----
-
-## 7. Updating later
-
-On the server:
+## 7. Updating
 
 ```bash
-cd ~/iposi-react && git pull
-( cd server && npm ci --no-audit --no-fund && npm run build )
-( cd client && npm ci --no-audit --no-fund && npm run build )
+cd iposi && git pull
+( cd server && npm ci && npm run build )
+( cd client && npm ci && npm run build )
 
-sudo rsync -a --delete ~/iposi-react/client/dist/ /var/www/iposi/
+sudo rsync -a --delete client/dist/ /var/www/iposi/
 sudo chown -R www-data:www-data /var/www/iposi
 
-sudo rsync -a --delete ~/iposi-react/server/dist/ /opt/iposi-api/dist/
-sudo cp ~/iposi-react/server/package.json ~/iposi-react/server/package-lock.json /opt/iposi-api/
-( cd /opt/iposi-api && sudo npm ci --omit=dev --no-audit --no-fund )
+sudo rsync -a --delete server/dist/ /opt/iposi-api/dist/
+sudo cp server/package.json server/package-lock.json /opt/iposi-api/
+( cd /opt/iposi-api && sudo npm ci --omit=dev )
 sudo systemctl restart iposi-api
 curl -s http://127.0.0.1:3001/api/health ; echo
 ```
 
-(If `package.json` dependencies did not change you can skip the `server`
-`npm ci` and just refresh `dist/` + restart.)
+If `server` dependencies are unchanged, skip its `npm ci` — just refresh
+`dist/` and restart.
+
+---
+
+## 8. Local Agent (localhost testing)
+
+Requests to `localhost` / `127.0.0.1` are sent from the browser straight to the
+**IposiAgent** companion app (system tray, port `19090`, sends
+`Access-Control-Allow-Origin: *`). Loopback HTTP is treated as a secure context
+by Chrome and Firefox, so there is no mixed-content issue from the HTTPS page.
+When the agent is not running, the response pane shows `AGENT ERROR`. No
+server-side configuration is required for this path.
+
+---
+
+## 9. Troubleshooting
+
+**`npm ci` fails with `ECONNRESET` and `ping registry.npmjs.org` shows an IPv6
+address with 100 % loss.** The host advertises unroutable IPv6. Prefer IPv4
+system-wide:
+
+```bash
+echo 'precedence ::ffff:0:0/96  100' | sudo tee -a /etc/gai.conf
+```
+
+**`git` / `rsync` over SSH aborts with `Bad configuration option:
+permitrootlogin`.** `PermitRootLogin` is an `sshd` directive that ended up in
+the SSH *client* config. Comment it out in `/etc/ssh/ssh_config` (it belongs in
+`sshd_config`, if anywhere).
+
+**`npm` warns `EBADENGINE … required: node >=20`.** The `mssql` driver pulls
+`@azure/*` packages that want Node ≥ 20. Upgrade Node (see Prerequisites).
+
+**Assets return `403` while `index.html` is `200`.** The nginx block is using
+`alias` instead of `root` — see the note in section 5.
+
+**Health is `db:"down"`.** The API process is fine; it cannot open a SQL Server
+connection. Check host/instance/port/credentials in `/opt/iposi-api/.env` and
+that the DB host is reachable (`nc -vz <host> 1433`).
