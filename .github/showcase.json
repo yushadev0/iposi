@@ -1,0 +1,28 @@
+{
+  "name": "Iposi",
+  "year": 2026,
+  "stack": [
+    "React",
+    "Vite",
+    "TypeScript",
+    "Delphi"
+  ],
+  "related": [
+    "iposi-agent"
+  ],
+  "tagline": {
+    "en": "Tests any API, local ones included.",
+    "tr": "Yereldekiler dahil, her API'yi test eder."
+  },
+  "body": {
+    "en": [
+      "An API client I built with Postman in mind: history, collections and a readable response viewer.",
+      "A small local agent lets it reach APIs on your own network, which a browser can't do alone."
+    ],
+    "tr": [
+      "Postman'den esinlenerek yaptığım bir API istemcisi: geçmiş, koleksiyonlar ve okunaklı bir yanıt görüntüleyici.",
+      "Yanındaki küçük yerel ajan sayesinde tarayıcının tek başına ulaşamadığı, kendi ağınızdaki API'lere de bağlanabilir."
+    ]
+  },
+  "cover": "showcase-cover.webp"
+}
