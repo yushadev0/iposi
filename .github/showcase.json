@@ -24,5 +24,6 @@
       "Yanındaki küçük yerel ajan sayesinde tarayıcının tek başına ulaşamadığı, kendi ağınızdaki API'lere de bağlanabilir."
     ]
   },
-  "cover": "showcase-cover.webp"
+  "cover": "showcase-cover.webp",
+  "demo": "https://yusa.app/iposi/"
 }
